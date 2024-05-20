@@ -100,21 +100,31 @@
 </head>
 
 <body>
-    <div class="card">
+    <div class="card" id="interactive-card">
         cheerup ＼＼\(۶•̀ᴗ•́)۶//／
     </div>
     <strong style="color:red;"> :btk </strong>
     <img src="https://i.imgur.com/rva2oXF.gif" style="width:80px;height:80px;">
-    <audio id="background-audio" muted>
+    <audio id="background-audio">
         <source src="test.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            var card = document.getElementById('interactive-card');
             var audio = document.getElementById('background-audio');
-            audio.muted = false;
-            audio.play().catch(error => {
-                console.log('Autoplay was prevented:', error);
+
+            card.addEventListener('click', function () {
+                audio.play().catch(error => {
+                    console.log('Playback prevented:', error);
+                });
+            });
+            
+            // Optional: Also trigger playback on touch events for mobile devices
+            card.addEventListener('touchstart', function () {
+                audio.play().catch(error => {
+                    console.log('Playback prevented:', error);
+                });
             });
         });
     </script>
