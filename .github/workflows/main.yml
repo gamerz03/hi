@@ -23,4 +23,4 @@ jobs:
       run: npm ci
 
     - name: Run Index.js
-      run: node index.js
+      run: node index.html
