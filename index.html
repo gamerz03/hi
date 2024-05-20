@@ -1,11 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:BTK</title>
+    <title>:USME</title>
     <style>
         @property --rotate {
             syntax: "<angle>";
@@ -13,11 +13,12 @@
             inherits: false;
         }
 
-        :root{
+        :root {
             --card-height: 65vh;
             --card-width: calc(var(--card-height) / 1.5);
         }
-        body{
+
+        body {
             min-height: 100vh;
             background: #212534;
             display: flex;
@@ -27,7 +28,8 @@
             padding-bottom: 2rem;
             box-sizing: border-box;
         }
-        .card{
+
+        .card {
             background: #191c29;
             width: var(--card-width);
             height: var(--card-height);
@@ -42,16 +44,19 @@
             cursor: pointer;
             font-family: cursive;
         }
-        .card:hover{
+
+        .card:hover {
             color: rgb(88 199 250 / 100%);
             transition: color 1s;
         }
+
         .card:hover::before,
-        .card:hover::after{
+        .card:hover::after {
             animation: none;
             opacity: 0;
         }
-        .card::before{
+
+        .card::before {
             content: " ";
             width: 104%;
             height: 102%;
@@ -63,7 +68,8 @@
             left: -2%;
             animation: spin 2.5s linear infinite;
         }
-        .card::after{
+
+        .card::after {
             position: absolute;
             content: " ";
             top: calc(var(--card-height) / 6);
@@ -78,13 +84,15 @@
             background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
             opacity: 1;
             transition: opacity .5s;
-            animation: spin 2.55 linera infinite;
+            animation: spin 2.55s linear infinite;
         }
-        @keyframes spin{
-            0%{
+
+        @keyframes spin {
+            0% {
                 --rotate: 0deg;
             }
-            100%{
+
+            100% {
                 --rotate: 360deg;
             }
         }
@@ -94,14 +102,22 @@
 <body>
     <div class="card">
         cheerup ＼＼\(۶•̀ᴗ•́)۶//／
-
     </div>
-  <strong style="color:red;"> :USME </strong>
-  <img src="https://i.imgur.com/rva2oXF.gif" style="width:80px;height:80px;">
-  <audio autoplay>
-  <source src="test.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+    <strong style="color:red;"> :btk </strong>
+    <img src="https://i.imgur.com/rva2oXF.gif" style="width:80px;height:80px;">
+    <audio id="background-audio" muted>
+        <source src="test.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            audio.muted = false;
+            audio.play().catch(error => {
+                console.log('Autoplay was prevented:', error);
+            });
+        });
+    </script>
 </body>
 
 </html>
